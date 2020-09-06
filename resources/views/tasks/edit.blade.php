@@ -14,6 +14,11 @@
       {!! Form::text("content", null, ["class" => "form-control"]) !!}
     </div>
 
+    <div class="form-group">
+      {!! Form::label("status", "ステータス：") !!}
+      {!! Form::text("status", null, ["class" => "form-control", "placeholder" => "ステータスを記載"]) !!}
+    </div>
+
     {!! Form::submit("投稿", ["class" => "btn btn-warning"]) !!}
 
     {!! Form:: close() !!}

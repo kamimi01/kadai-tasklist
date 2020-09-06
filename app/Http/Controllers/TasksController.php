@@ -47,7 +47,12 @@ class TasksController extends Controller
     // postでtasks/にアクセスされた場合の「新規登録処理」
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "status" => "require|max:10",
+        ]);
+
         $task = new Task;
+        $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
 
@@ -97,6 +102,7 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         $task = Task::find($id);
+        $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
 
