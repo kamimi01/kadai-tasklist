@@ -47,9 +47,10 @@ class TasksController extends Controller
     // postでtasks/にアクセスされた場合の「新規登録処理」
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     "status" => "require|max:10",
-        // ]);
+        $this->validate($request, [
+            "content" => "required|max:191",
+            "status" => "required|max:191",
+        ]);
 
         $task = new Task;
         $task->status = $request->status;
